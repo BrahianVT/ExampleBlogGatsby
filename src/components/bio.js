@@ -20,7 +20,7 @@ const Bio = () => {
             summary
           }
           social {
-            twitter
+            github
           }
         }
       }
@@ -37,7 +37,7 @@ const Bio = () => {
         className="bio-avatar"
         layout="fixed"
         formats={["AUTO", "WEBP", "AVIF"]}
-        src="../images/profile-pic.png"
+        src="../images/profile-pic.jpg"
         width={50}
         height={50}
         quality={95}
@@ -47,8 +47,8 @@ const Bio = () => {
         <p>
           Written by <strong>{author.name}</strong> {author?.summary || null}
           {` `}
-          <a href={`https://twitter.com/${social?.twitter || ``}`}>
-            You should follow them on Twitter 
+          <a href={`https://github.com/${social?.github || ``}`}>
+            You should follow on GitHub 
           </a>
           &nbsp; or &nbsp;
           <Link className="header-link-home" to="/contact">Contact Here</Link> 
