@@ -36,9 +36,10 @@ Throughput and footprint are best measured using metrics particular to the appli
 For example, the throughput of a web server may be tested using a client load generator.
 Also in the VM logs with the command __"-verbose:gc"__ prints information about the heap andgarbage collection at each collection for example:
 
-> [15,651s][info ][gc] GC(36) Pause Young (G1 Evacuation Pause) 239M->57M(307M) (15,646s, 15,651s) 5,048ms
-[16,162s][info ][gc] GC(37) Pause Young (G1 Evacuation Pause) 238M->57M(307M) (16,146s, 16,162s) 16,565ms
-[16,367s][info ][gc] GC(38) Pause Full (System.gc()) 69M->31M(104M) (16,202s, 16,367s) 164,581ms
+    [15,651s][info ][gc] GC(36) Pause Young (G1 Evacuation Pause) 239M->57M(307M) (15,646s, 15,651s) 5,048ms.
+    [16,162s][info ][gc] GC(37) Pause Young (G1 Evacuation Pause) 238M->57M(307M) (16,146s, 16,162s) 16,565ms.
+    [16,367s][info ][gc] GC(38) Pause Full (System.gc()) 69M->31M(104M) (16,202s, 16,367s) 164,581ms
+
 
 The output shows two young generations followeb by a full collection bacause of the __"System.gc()"__ call.
 
