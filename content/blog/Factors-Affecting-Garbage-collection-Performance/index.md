@@ -4,7 +4,7 @@ date: "2021-06-30"
 description: "The two most important factors affecting garbage collection performance are total available memory and proportion oh the heap dedicated to young generation."
 ---
 
-The two most important factors affecting garbage collection performance are total available memory and proportion oh the heap dedicated to young generation.
+The two most important factors affecting garbage collection performance are total available memory and proportion to the heap dedicated to young generation.
 
 ## Total Heap
 The most important factor affecting garbage collection performace is total available memory.
@@ -16,7 +16,7 @@ A number of options affects generation size.
 
 ![Memory](./heap.png)
 
-In the image the difference between commited space and virtual space in the heap. At initialization of the virtual machine, the entire space for the heap is reserved.The size of the sapce reserved can be specified with the the __-Xmx__ option, If the value of the __-Xms__ parameter is smaller than the value of the __-Xmx__ parameter,then not all of the space that's reserved is immediately committed to the virtual machine.The uncommitted space is labeled "virtual". The old generation and young generation, can grow to the limit of the virtual space as needed.
+In the image the difference between commited space and virtual space in the heap. At initialization of the virtual machine, the entire space for the heap is reserved.The size of the space reserved can be specified with the __-Xmx__ option, If the value of the __-Xms__ parameter is smaller than the value of the __-Xmx__ parameter,then not all of the space that's reserved is immediately committed to the virtual machine.The uncommitted space is labeled "virtual". The old generation and young generation, can grow to the limit of the virtual space as needed.
 
 Some of the parameters are ratios of one part of the heap to another. For example, the parameter __XX:NewRatio__ denotes the relative size of the old generation to the young generation.
 
@@ -29,11 +29,11 @@ and the total size is bounded below by __-Xms"min"__ and above by __-Xmx"max"__.
 With these options, if the percent of free space in generation falls below 40%, then the generation expands to maintain 40% free space,up to the maximum allowed size of the generation.
 
 ## Conserving Dynamic Footprint by Minimizing Java Heap Size 
-If you need to minimize the dynamic memory footprint (RAM consumed during execution) for your application, you can do this by minimizing the Java heap size.Minimize Java heap size by lowering the values of the options __"-XX:MaxHeapFreeRation"__ (default 70%) and __-XX:MinHeapFreeRatio__(default 40%).Lowering __-XX:MaxHeapFreeRatio__ and __-XX:MinHeapFreeRatio__ by 10% has shown
+If you need to minimize the dynamic memory footprint (RAM consumed during execution) for your application, you can do this by minimizing the Java heap size. Minimize Java heap size by lowering the values of the options __"-XX:MaxHeapFreeRation"__ (default 70%) and __-XX:MinHeapFreeRatio__(default 40%). Lowering __-XX:MaxHeapFreeRatio__ and __-XX:MinHeapFreeRatio__ by 10% has shown
 to successfully reduce the heap size without too much performace degradation.
 
 ## The Young Generation
-the second factor affecting garbage collection performance is the proportion of the heap dedicated to the young generation, the bigger the young generation, the less often minor collections occur.
+The second factor affecting garbage collection performance is the proportion of the heap dedicated to the young generation, the bigger the young generation, the less often minor collections occur.
 
 ### Young Generation Size Options
 By default, the young generation size is control by the option __-XX:NewRatio__, setting __-XX:NewRatio=3__ means the ratio between the young and old generation is 1:3. The options __-XX:NewSize__ and __-XX:MaxNewSize__ bound young generation size from below and above.
