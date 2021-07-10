@@ -21,12 +21,9 @@ Enable it by providing __-XX:+USeG1GC__ on the command line, it is generational,
 
 To keep stop-the-world pauses short for space-reclamation, G1 performs space-reclamation incrementally in steps and in parallel. G1 achieves predictability by tracking information about previous application behavior and garbage collection pauses to build a model of the associated costs. It uses this information to size the work done in the pauses. G1 reclaims space in the most efficient areas first.
 
-G1 reclaims space by using evacuation: live objects found within selected memory areas to collect are 
-copied into new memory areas, compacting them in the process. After the evacuation, the space previously
-occupied by live objects is reused for allocation by the application.
+G1 reclaims space by using evacuation: live objects found within selected memory areas to collect are copied into new memory areas, compacting them in the process. After the evacuation, the space previousl occupied by live objects is reused for allocation by the application.
 
-The Garbage-First collector is not a real-time collector. It tries to meet set pause-time targets with
-high probability over a longer time.
+The Garbage-First collector is not a real-time collector. It tries to meet set pause-time targets with high probability over a longer time.
 
 ## Heap Layout
 
@@ -36,8 +33,7 @@ G1 partitions the heap into a set of equally sized heap regions, each a contiguo
 
 The young generation contains eden regions (red) and survivor regions (red with "S"). These regions provide the same function as the respective contiguous spaces in other collectors, with the difference that in G1 these regions are typically laid out in a noncontiguous pattern in memory. Old generation regions may be humongous (light blue with "H") for objects that span multiple regions.
 
-An application always allocates into a young generation, that is, eden regions, with the exception of
-humongous objects that are directly allocated as belonging to the old generation. 
+An application always allocates into a young generation, that is, eden regions, with the exception of humongous objects that are directly allocated as belonging to the old generation. 
 
 
 ## Garbage Collection Cycle
